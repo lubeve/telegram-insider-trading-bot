@@ -1,0 +1,16 @@
+# Trading and Market Data
+degiroapi==0.21.0
+insidertrader==0.1.0
+
+# Data Analysis for Insider Detection
+pandas>=1.5.0
+numpy>=1.24.0
+plotly>=5.0.0
+yfinance>=0.2.0
+
+# Existing dependencies
+python-telegram-bot>=20.0
+SQLAlchemy>=2.0
+APScheduler>=3.10
+cryptography>=41.0
+requests>=2.31
