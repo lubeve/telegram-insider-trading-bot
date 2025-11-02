@@ -23,7 +23,6 @@ class TradingOpportunity(Base):
     entry_price = Column(Float)
     quantity = Column(Float)
     trade_type = Column(String, nullable=False)  # BUY or SELL
-    isin = Column(String, index=True)
     detected_at = Column(DateTime, default=datetime.utcnow)
     executed = Column(Boolean, default=False)
     execution_time = Column(DateTime)
@@ -35,6 +34,9 @@ class TradingOpportunity(Base):
     # Relationship to insider activities
     insider_activity_id = Column(Integer, ForeignKey('insider_activities.id'))
     insider_activity = relationship("InsiderActivity", back_populates="trading_opportunities")
+    
+    # Relationship to order history
+    order_history = relationship("OrderHistory", back_populates="trading_opportunity")
     
     def __repr__(self):
         return f"<TradingOpportunity(id={self.id}, product='{self.product_name}', confidence={self.confidence_score})>"
